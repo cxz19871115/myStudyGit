@@ -51,6 +51,7 @@
   git pull                (拉取合并)
     = git fetch
       git merge
+  git push origin master|dev    (推送分支)
 12. 标签管理
   git tag [-a] [v1.0] [commit_id] [-m "xxx"]
   git show [tag]
@@ -60,3 +61,5 @@
   git remote -v
   git checkout -b src_master upstream/master
   git diff master src_master
+  问题：git branch -a
+        若无remotes/upstream分支, 会报错。需先git fetch upstream 。
