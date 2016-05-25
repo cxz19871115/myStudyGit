@@ -1,0 +1,62 @@
+感谢此篇blog：http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000
+
+1. 创建版本库
+  a. mkdir myStudyGit && cd myStudyGit
+  b. git init
+  c. touch readme.txt && git add readme.txt && git commit -m "add readme doc"
+2. 修改文件
+  git status
+  git diff
+  git add
+  git commit -m "xxx"
+3. 版本回退
+  git log [--pretty=oneline]
+  git reset --hard HEAD^
+  git reset --hard $commit_id
+  git reflog
+4. 工作区和暂存区，版本库
+  git add 会先把修改写入暂存区，也叫Index
+  git commit 再从暂存区将修改同步到master分支等
+5. 撤销修改
+  git checkout -- $file （撤销工作区）
+  git reset HEAD $file   (将暂存区的修改撤回工作区)
+  git diff HEAD^ HEAD
+6. 删除文件
+  git rm
+  git commit
+7. 远程仓库
+  a. 关联远程库
+    git remote add origin git@github.com:Timer-cxz/myStudyGit.git
+    git remote add upstream https://github.com/cxz19871115/myStudyGit.git
+  b. 将本地库内容推送至远程库
+    git push [-u] origin master
+  c. 从远程库clone一个到本地
+    git clone git@github.com:Timer-cxz/myStudyGit.git
+8. 创建和切换分支
+  git checkout -b dev
+   = git branch dev       (创建)
+     git checkout dev     (切换)
+  git branch              (查看)
+  git merge dev           (合并dev至当前分支)
+  git branch -d|-D dev    (删除分支)
+9. 解决冲突
+  git log --graph         (查看分支合并图)
+10. bug分支
+  git stash               (保存工作区现场)
+  git stash [list|apply|drop|pop]
+11. 多人协作
+  git remote [-v]         (查看远程库)
+  git checkout -b dev origin/dev
+  git branch --set-upstream-to=origin/dev dev       (建立关联)
+  git pull                (拉取合并)
+    = git fetch
+      git merge
+12. 标签管理
+  git tag [-a] [v1.0] [commit_id] [-m "xxx"]
+  git show [tag]
+  git push origin $tag|--tags
+13. 原始仓库同步
+  git remote add upstream https://github.com/cxz19871115/myStudyGit.git
+  git remote -v
+  git checkout -b src_master upstream/master
+  git diff master src_master
