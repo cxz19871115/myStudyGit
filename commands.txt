@@ -10,6 +10,7 @@
   git add
   git commit -m "xxx"
 3. 版本回退
+  git show [commit_id]
   git log [--pretty=oneline]
   git reset --hard HEAD^
   git reset --hard $commit_id
